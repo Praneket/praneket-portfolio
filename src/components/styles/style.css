@@ -18,3 +18,39 @@
   transform: translateY(-100%);
   color: var(--accentColor);
 }
+
+.techstack-mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.techstack-mobile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(94, 234, 212, 0.15);
+  border-radius: 16px;
+  padding: 16px 10px 12px;
+  gap: 10px;
+}
+
+.techstack-mobile-item img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(94, 234, 212, 0.3));
+}
+
+.techstack-mobile-item span {
+  font-size: 11px;
+  color: var(--accentColor);
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 500;
+}

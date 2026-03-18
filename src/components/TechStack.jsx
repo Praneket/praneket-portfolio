@@ -10,18 +10,14 @@ import {
   CylinderCollider,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  // "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  // "/images/typescript.webp",
-  "/images/javascript.webp",
+const techItems = [
+  { src: "/images/react2.webp",      label: "React" },
+  { src: "/images/node2.webp",       label: "Node.js" },
+  { src: "/images/express.webp",     label: "Express" },
+  { src: "/images/mongo.webp",       label: "MongoDB" },
+  { src: "/images/mysql.webp",       label: "MySQL" },
+  { src: "/images/javascript.webp",  label: "JavaScript" },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -111,7 +107,14 @@ function Pointer({ vec = new THREE.Vector3(), isActive }) {
 }
 
 const TechStack = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,19 +141,37 @@ const TechStack = () => {
   }, []);
 
   const materials = useMemo(() => {
-    return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
-          map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
-        })
+    if (isMobile) return [];
+    const loader = new THREE.TextureLoader();
+    return techItems.map(({ src }) => {
+      const texture = loader.load(src);
+      return new THREE.MeshPhysicalMaterial({
+        map: texture,
+        emissive: "#ffffff",
+        emissiveMap: texture,
+        emissiveIntensity: 0.3,
+        metalness: 0.5,
+        roughness: 1,
+        clearcoat: 0.1,
+      });
+    });
+  }, [isMobile]);
+
+  if (isMobile) {
+    return (
+      <div className="techstack">
+        <h2>My Techstack</h2>
+        <div className="techstack-mobile-grid">
+          {techItems.map(({ src, label }, i) => (
+            <div key={i} className="techstack-mobile-item">
+              <img src={src} alt={label} />
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     );
-  }, []);
+  }
 
   return (
     <div className="techstack">
