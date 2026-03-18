@@ -12,10 +12,8 @@ import setSplitText from "./utils/splitText";
 
 const TechStack = lazy(() => import("./TechStack"));
 
-const MainContainer = ({ children }) => {
-  const [isDesktopView, setIsDesktopView] = useState(
-    window.innerWidth > 1024
-  );
+const MainContainer = () => {
+  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth > 1024);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -24,9 +22,7 @@ const MainContainer = ({ children }) => {
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
+    return () => window.removeEventListener("resize", resizeHandler);
   }, [isDesktopView]);
 
   return (
@@ -34,11 +30,10 @@ const MainContainer = ({ children }) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Landing />
             <About />
             <WhatIDo />
             <Career />

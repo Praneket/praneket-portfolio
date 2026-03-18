@@ -3,6 +3,18 @@ import "./styles/About.css";
 const About = () => {
   return (
     <div className="about-section" id="about">
+      <div className="about-visual">
+        <div className="about-orb about-orb-1"></div>
+        <div className="about-orb about-orb-2"></div>
+        <div className="about-orb about-orb-3"></div>
+        <div className="about-grid">
+          {[...Array(12)].map((_, i) => (
+            <div className="about-grid-item" key={i}></div>
+          ))}
+        </div>
+        <div className="about-ring about-ring-1"></div>
+        <div className="about-ring about-ring-2"></div>
+      </div>
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">

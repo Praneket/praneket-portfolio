@@ -1,9 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Loading from "../components/Loading";
 
 export const LoadingContext = createContext(null);
@@ -12,12 +7,21 @@ export const LoadingProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(0);
 
-  const value = {
-    isLoading,
-    setIsLoading,
-    setLoading,
-  };
-  useEffect(() => {}, [loading]);
+  useEffect(() => {
+    let percent = 0;
+    const interval = setInterval(() => {
+      percent += Math.round(Math.random() * 8 + 3);
+      if (percent >= 100) {
+        setLoading(100);
+        clearInterval(interval);
+      } else {
+        setLoading(percent);
+      }
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+
+  const value = { isLoading, setIsLoading, setLoading };
 
   return (
     <LoadingContext.Provider value={value}>
@@ -29,8 +33,6 @@ export const LoadingProvider = ({ children }) => {
 
 export const useLoading = () => {
   const context = useContext(LoadingContext);
-  if (!context) {
-    throw new Error("useLoading must be used within a LoadingProvider");
-  }
+  if (!context) throw new Error("useLoading must be used within a LoadingProvider");
   return context;
 };

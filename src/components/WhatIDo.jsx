@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WhatCanvas from "./WhatCanvas";
 
 const WhatIDo = () => {
   const containerRef = useRef([]);
@@ -26,13 +27,16 @@ const WhatIDo = () => {
   }, []);
   return (
     <div className="whatIDO">
-      <div className="what-box">
+      <div className="what-box what-box-left">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
           <div>
             I<span className="do-h2"> DO</span>
           </div>
         </h2>
+        <div className="what-canvas-wrap">
+          <WhatCanvas />
+        </div>
       </div>
       <div className="what-box">
         <div className="what-box-in">
