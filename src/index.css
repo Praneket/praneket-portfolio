@@ -135,3 +135,144 @@ body {
     font-size: 40px;
   }
 }
+
+/* ── Light Mode ── */
+.light-mode {
+  --backgroundColor: #f5f7fa;
+  --accentColor: #0d9488;
+  --textColor: #0a0e17;
+  --textMuted: #4a5568;
+  color: #0a0e17;
+  background-color: var(--backgroundColor);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Background fills */
+.light-mode #smooth-wrapper,
+.light-mode #smooth-content,
+.light-mode .contact-section,
+.light-mode .work-section,
+.light-mode .techstack {
+  background-color: var(--backgroundColor);
+}
+
+/* ── Global text ── */
+.light-mode h1, .light-mode h2, .light-mode h3,
+.light-mode h4, .light-mode h5, .light-mode h6 { color: #0a0e17; }
+.light-mode p   { color: #2d3748; }
+.light-mode a   { color: #0a0e17; }
+.light-mode a:hover { color: var(--accentColor); }
+
+/* ── Navbar ── */
+.light-mode .header ul li,
+.light-mode .navbar-title,
+.light-mode .navbar-connect { color: #0a0e17; }
+.light-mode .theme-toggle   { border-color: rgba(0,0,0,0.25); color: #0a0e17; }
+.light-mode .nav-fade {
+  background-image: linear-gradient(0deg, transparent, var(--backgroundColor) 70%);
+}
+
+/* ── Landing ── */
+.light-mode .landing-intro h1 { color: #0a0e17; }
+.light-mode .landing-intro h2 { color: var(--accentColor); }
+.light-mode .landing-info h3  { color: #0a0e17; }
+.light-mode .landing-h2-1,
+.light-mode .landing-h2-2     { color: var(--accentColor); }
+
+/* ── About ── */
+.light-mode .about-me h3 { color: var(--accentColor); }
+.light-mode .about-me p  { color: #0a0e17; }
+.light-mode .about-ring  { border-color: rgba(13,148,136,0.2); }
+.light-mode .about-ring-2 { border-color: rgba(13,148,136,0.1); }
+
+/* ── WhatIDo ── */
+.light-mode .what-box h2       { color: #0a0e17; }
+.light-mode .what-content h3   { color: #0a0e17; }
+.light-mode .what-content h4   { color: #4a5568; }
+.light-mode .what-content p    { color: #2d3748; }
+.light-mode .what-content h5   { color: #4a5568; }
+.light-mode .what-tags {
+  background-color: rgba(13,148,136,0.08);
+  border-color: rgba(13,148,136,0.25);
+  color: #0a0e17;
+}
+.light-mode .what-content::before, .light-mode .what-corner::before,
+.light-mode .what-content::after,  .light-mode .what-corner::after { border-color: #0a0e17; }
+.light-mode .what-arrow       { border-color: #0a0e17; }
+.light-mode .what-arrow::before { border-color: #0a0e17; }
+.light-mode .what-border1 svg path,
+.light-mode .what-border2 svg path { stroke: #0a0e17; }
+
+/* ── Career ── */
+.light-mode .career-section h2 {
+  background: linear-gradient(0deg, #0d9488, #0a0e17);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.light-mode .career-info h3,
+.light-mode .career-info h4   { color: #0a0e17; }
+.light-mode .career-info h5   { color: var(--accentColor); }
+.light-mode .career-info-box p { color: #2d3748; }
+.light-mode .career-timeline {
+  background-image: linear-gradient(to top, #0d9488 20%, var(--accentColor) 50%, transparent 95%);
+}
+
+/* ── Work ── */
+.light-mode .work-section h2        { color: #0a0e17; }
+.light-mode .carousel-details h4    { color: #0a0e17; }
+.light-mode .carousel-number h3     { color: #0a0e17; }
+.light-mode .carousel-category,
+.light-mode .carousel-tools p       { color: #4a5568; }
+.light-mode .carousel-tools .tools-label { color: #4a5568; }
+.light-mode .carousel-track-container {
+  border-color: rgba(0,0,0,0.12);
+}
+.light-mode .carousel-arrow {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.15);
+  color: #0a0e17;
+}
+.light-mode .carousel-arrow:hover {
+  background: rgba(13,148,136,0.1);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+.light-mode .carousel-dot { border-color: rgba(0,0,0,0.25); }
+.light-mode .work-link {
+  background-color: var(--backgroundColor);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15), inset 0px 0px 10px 0px #ccc;
+}
+
+/* ── Contact ── */
+.light-mode .contact-heading        { color: #0a0e17; }
+.light-mode .contact-subheading     { color: #4a5568; }
+.light-mode .contact-form {
+  border-color: rgba(13,148,136,0.2);
+  background: rgba(255,255,255,0.7);
+}
+.light-mode .contact-field label    { color: #4a5568; }
+.light-mode .contact-field input,
+.light-mode .contact-field textarea {
+  background: #fff;
+  border-color: rgba(0,0,0,0.15);
+  color: #0a0e17;
+}
+.light-mode .contact-field input::placeholder,
+.light-mode .contact-field textarea::placeholder { color: #9ca3af; }
+.light-mode .contact-field input:focus,
+.light-mode .contact-field textarea:focus { border-color: var(--accentColor); }
+.light-mode .contact-social-btn     { border-color: rgba(0,0,0,0.15); color: #0a0e17; }
+.light-mode .contact-info-title     { color: #0a0e17; }
+.light-mode .contact-mail-link      { color: #0a0e17; }
+.light-mode .contact-mail-icon      { border-color: rgba(0,0,0,0.15); }
+.light-mode .contact-info-divider   { background: rgba(0,0,0,0.1); }
+.light-mode .contact-info-edu       { color: #2d3748; }
+.light-mode .contact-footer         { border-top-color: rgba(0,0,0,0.1); color: #4a5568; }
+
+/* ── Techstack mobile ── */
+.light-mode .techstack-mobile-item {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(13,148,136,0.2);
+}
+.light-mode .techstack-mobile-item span { color: #0a0e17; }

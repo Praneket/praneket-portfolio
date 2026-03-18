@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { useTheme } from "../context/ThemeContext";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -13,6 +14,8 @@ import setSplitText from "./utils/splitText";
 const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = () => {
+  const { isDark } = useTheme();
+
   useEffect(() => {
     const resizeHandler = () => setSplitText();
     resizeHandler();
@@ -21,7 +24,7 @@ const MainContainer = () => {
   }, []);
 
   return (
-    <div className="container-main">
+    <div className={`container-main${isDark ? "" : " light-mode"}`}>
       <Cursor />
       <Navbar />
       <SocialIcons />
