@@ -6,3 +6,5 @@ Do check it out!
 
 **Techstack** - React, TypeScript, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
 
+![Portfolio-Preview](public/images/preview-1.png)
+
